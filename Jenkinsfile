@@ -7,17 +7,9 @@ pipeline {
     
   }
   stages {
-    stage('Build') {
+    stage('Check-out code') {
       steps {
-        sh 'npm install'
-      }
-    }
-    stage('Test') {
-      environment {
-        CI = 'true'
-      }
-      steps {
-        sh './jenkins/scripts/test.sh'
+        svn(changelog: true, poll: true, url: 'https://collaborate.bt.com/svn/dnp-project/trunk/src/GeneratePassword')
       }
     }
   }
