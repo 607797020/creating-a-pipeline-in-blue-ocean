@@ -8,8 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '''mvn clean install
-mvn site'''
+        sh 'mvn -f ./GeneratePassword/pom.xml clean install site '
       }
     }
   }
