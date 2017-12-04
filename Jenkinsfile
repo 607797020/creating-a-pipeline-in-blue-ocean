@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Check-out code') {
+    stage('Code check out') {
       steps {
-        svn(changelog: true, poll: true, url: 'https://collaborate.bt.com/svn/dnp-project/trunk/src/GeneratePassword')
+        sh 'svn co https://collaborate.bt.com/svn/dnp-project/trunk/src/GeneratePassword --username 607797020 --password SilentQQWW89'
       }
     }
   }
