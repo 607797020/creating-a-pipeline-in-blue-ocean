@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'SVN'
-    }
-    
-  }
+  agent any
   stages {
     stage('Check-out code') {
       steps {
