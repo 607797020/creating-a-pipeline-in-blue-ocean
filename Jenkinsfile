@@ -18,7 +18,9 @@ pipeline {
     }
     stage('Deployment') {
       steps {
-        sh '''java weblogic.Deployer -debug -remote -verbose -noexit -name GeneratePassword -targets managed2_dnpwls001 -adminurl t3://10.50.142.42:61070 -user weblogic -undeploy
+        sh '''echo $JAVA_HOME
+echo $CLASS_PATH
+java weblogic.Deployer -debug -remote -verbose -noexit -name GeneratePassword -targets managed2_dnpwls001 -adminurl t3://10.50.142.42:61070 -user weblogic -undeploy
 java weblogic.Deployer -debug -stage -remote -verbose -upload -name GeneratePassword -source ./GeneratePassword/target/GeneratePasswordRS-V1.war -targets managed2_dnpwls001 -adminurl t3://10.50.142.42:61070 -user weblogic -deploy'''
       }
     }
